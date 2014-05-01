@@ -259,7 +259,7 @@ body:not(#afui) .upage-outer {
   }
   #afui .wrapping-col > .d-margins {
     margin-left: 6px;
-    margin-right: 6px;
+    margin-right: 16px;
   }
 }
 @media all {
@@ -323,9 +323,9 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 0px) {
+@media all and (min-width: 570px) {
   #afui .row-height-3 > .col > .content-area {
-    min-height: 100px;
+    min-height: 193px;
   }
 }
 #afui header {
@@ -439,7 +439,7 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 0px) {
+@media all and (min-width: 570px) {
   #afui .row-height-5 > .col > .content-area {
     min-height: 100px;
   }
@@ -492,8 +492,90 @@ body:not(#afui) .upage-outer {
     padding-left: 0px !important;
   }
 }
-@media all and (min-width: 0px) {
+@media all and (min-width: 570px) {
   #afui .row-height-7 > .col > .content-area {
+    min-height: 100px;
+  }
+}
+@media all {
+  #afui .inp {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  #afui .wrapping-col > .inp {
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+}
+@media all {
+  #afui .inp-width > .narrow-control {
+    text-align: right;
+  }
+}
+.uib_row_8:not(.cright) > .col {
+  padding-right: 20px;
+}
+.uib_row_8.cright > .col {
+  padding-left: 20px;
+}
+@media all {
+  .col-0_12-12 {
+    width: auto;
+    float: none !important;
+  }
+  .urow:not(.cright) > .col-0_12-12 {
+    padding-right: 0px !important;
+  }
+  .urow.cright > .col-0_12-12 {
+    padding-left: 0px !important;
+  }
+}
+@media all {
+  #afui .bar-bg {
+    background-color: #dadada;
+    background-image: linear-gradient(top, #1e5799 0%, #dd2a45 100%);
+    background-image: -webkit-linear-gradient(top, #1e5799 0%, #dd2a45 100%);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+  }
+}
+@media all {
+  #afui .thumb-bg > .sidebar-thumb {
+    background-image: url('../sidebar/css/images/gripper.png');
+  }
+  #afui .thumb-bg > .sidebar-thumb:hover,
+  #afui .thumb-bg > .sidebar-thumb:active {
+    background-color: #eeeeee;
+  }
+}
+@media all {
+  #afui .bar-gutter .sidebar-content > .grid-pad {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.uib_row_9:not(.cright) > .col {
+  padding-right: 20px;
+}
+.uib_row_9.cright > .col {
+  padding-left: 20px;
+}
+@media all {
+  .col-0_12-12 {
+    width: auto;
+    float: none !important;
+  }
+  .urow:not(.cright) > .col-0_12-12 {
+    padding-right: 0px !important;
+  }
+  .urow.cright > .col-0_12-12 {
+    padding-left: 0px !important;
+  }
+}
+@media all and (min-width: 570px) {
+  #afui .row-height-9 > .col > .content-area {
     min-height: 100px;
   }
 }

@@ -17,12 +17,21 @@
    		input, textarea  { -webkit-user-select:text; }
   </style>
 		<script type="text/javascript" src="phonegap.js"></script>
-		<script type="application/javascript" src="app_framework/appframework.ui.min.js"></script>
-		<script type="application/javascript" src="js/jquery.min.js"></script>
-		<script type="application/javascript" src="js/index_user_scripts.js"></script>
+		
+		<!--- Intel XDK JS --->
+	  <script type="application/javascript" src="app_framework/appframework.ui.min.js"></script>
+	  <script type="application/javascript" src="js/jquery.min.js"></script>
+	  <script type="application/javascript" src="js/index_user_scripts.js"></script>
+	  <script type="application/javascript" src="app_framework/appframework.js"></script>
+	  <script type="application/javascript" src="sidebar/js/jquery.event.move.js"></script>
+	  <script type="application/javascript" src="sidebar/js/jquery.event.swipe.js"></script>
+	  <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
+	  <script type="application/javascript" src="sidebar/js/swipe.js"></script>
+		<!--- Intel JS Ends --->
 
 	</head>
 	<body id="afui">
+
   <!-- content goes here-->
   <div class="uwrap" id="content">
    <div class="upage panel" id="mainpage" data-header="none" data-footer="none">
@@ -64,13 +73,15 @@
       <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
        <div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
         <div class="widget-container content-area vertical-col">
-         <ul class="list widget uib_w_3 d-margins" data-uib="app_framework/listview" data-ver="0">
-          <li class="widget uib_w_4" data-uib="app_framework/listitem" data-ver="0"><a class="icon user" href="#login_page">Login          </a>
-          </li>
-          <li class="widget uib_w_5" data-uib="app_framework/listitem" data-ver="0"><a class="icon pencil" href="#register_page">Register          </a>
-          </li>
 
-         </ul><span class="uib_shim"></span>
+         <div class="table-thing with-label widget uib_w_22 inp inp-width" data-uib="app_framework/input" data-ver="0">
+          <label class="narrow-control label-inline">Input</label>
+          <input class="wide-control" placeholder="Placeholder Text" type="text">
+         </div>
+         <div class="table-thing with-label widget uib_w_23 d-margins" data-uib="app_framework/input" data-ver="0">
+          <label class="narrow-control label-inline">Input</label>
+          <input class="wide-control" placeholder="Placeholder Text" type="text">
+         </div><span class="uib_shim"></span>
         </div>
        </div>
        <span class="uib_shim"></span>
@@ -78,110 +89,40 @@
      </div>
      <!-- /upage-content -->
 
-    </div>
-    <!-- /upage-outer -->
+     <div class="inner-element uib_w_24 uib_sidebar leftbar bar-bg thumb-bg bar-gutter swipe" data-uib="layout/left_sidebar" data-ver="0" data-anim="{'style':'push', 'v':200, 'side':'left'}">
+      <div class="sidebar-content">
 
-   </div>
-   <div class="upage panel" id="register_page" data-header="af-header-0" data-footer="none">
-    <div class="upage-outer">
-     <header class="container-group inner-element uib_w_7" data-uib="app_framework/header" data-ver="0" id="af-header-0">
-      <h1>Register</h1>
-      <div class="widget-container wrapping-col single-centered"></div>
-      <div class="widget-container content-area horiz-area wrapping-col left"><a class="button widget uib_w_8 d-margins icon left" data-uib="app_framework/button" data-ver="0" id="registerbackbtn"
-       href="#mainpage">Back</a>
-      </div>
-      <div class="widget-container content-area horiz-area wrapping-col right"></div>
-     </header>
-     <div id="register_pagesub" class="upage-content ">
-
-      <div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_4 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-
-         <div class="widget uib_w_9 d-margins" data-uib="media/text" data-ver="0">
-          <div class="widget-container left-receptacle"></div>
-          <div class="widget-container right-receptacle"></div>
-          <div>
-           <p>This is the space for the register message.</p>
-          </div>
-         </div><span class="uib_shim"></span>
+       <div class="grid grid-pad urow uib_row_8 row-height-8" data-uib="layout/row" data-ver="0">
+        <div class="col uib_col_8 col-0_12-12" data-uib="layout/col" data-ver="0">
+         <div class="widget-container content-area vertical-col">
+          <span class="uib_shim"></span>
+         </div>
         </div>
+        <span class="uib_shim"></span>
        </div>
-       <span class="uib_shim"></span>
-      </div>
 
-      <div class="grid urow uib_row_5 row-height-5 rpadding" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_5 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-         <div class="table-thing with-label widget uib_w_12 d-margins" data-uib="app_framework/input" data-ver="0">
-          <input class="wide-control" placeholder="Name" type="text" name="name">
+       <div class="grid grid-pad urow uib_row_9 row-height-9" data-uib="layout/row" data-ver="0">
+        <div class="col uib_col_9 col-0_12-12" data-uib="layout/col" data-ver="0">
+         <div class="widget-container content-area vertical-col">
+
+          <div class="widget uib_w_25 d-margins" data-uib="media/text" data-ver="0">
+           <div class="widget-container left-receptacle"></div>
+           <div class="widget-container right-receptacle"></div>
+           <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+           </div>
+          </div><span class="uib_shim"></span>
          </div>
-         <div class="table-thing with-label widget uib_w_13 d-margins" data-uib="app_framework/input" data-ver="0">
-          <input class="wide-control" placeholder="Email" type="text" name="email">
-         </div>
-         <div class="table-thing with-label widget uib_w_10 d-margins" data-uib="app_framework/input" data-ver="0">
-          <input class="wide-control" placeholder="username" type="text" name="username">
-         </div>
-         <div class="table-thing with-label widget uib_w_11 d-margins" data-uib="app_framework/input" data-ver="0">
-          <input class="wide-control" placeholder="password" type="text" name="password">
-         </div>
-         <div class="table-thing with-label widget uib_w_14 d-margins" data-uib="app_framework/input" data-ver="0">
-          <input class="wide-control" placeholder="confirm password" type="text" name="password">
-         </div><a class="button widget uib_w_15 d-margins block green" data-uib="app_framework/button" data-ver="0" id="registerbtn">Register</a>
-         <span class="uib_shim"></span>
         </div>
+        <span class="uib_shim"></span>
        </div>
-       <span class="uib_shim"></span>
       </div>
      </div>
     </div>
     <!-- /upage-outer -->
+
    </div>
-   <div class="upage panel" id="login_page" data-header="af-header-1" data-footer="none">
-    <div class="upage-outer">
-     <header class="container-group inner-element uib_w_16" data-uib="app_framework/header" data-ver="0" id="af-header-1">
-      <h1>Login</h1>
-      <div class="widget-container wrapping-col single-centered"></div>
-      <div class="widget-container content-area horiz-area wrapping-col left"><a class="button widget uib_w_17 d-margins icon left" data-uib="app_framework/button" data-ver="0" id="loginbackbtn"
-       href="#mainpage">Back</a>
-      </div>
-      <div class="widget-container content-area horiz-area wrapping-col right"></div>
-     </header>
-     <div id="login_pagesub" class="upage-content ">
 
-      <div class="grid grid-pad urow uib_row_6 row-height-6" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_6 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-
-         <div class="widget uib_w_18 d-margins center" data-uib="media/text" data-ver="0">
-          <div class="widget-container left-receptacle"></div>
-          <div class="widget-container right-receptacle"></div>
-          <div>
-           <p>This is space for login message</p>
-          </div>
-         </div><span class="uib_shim"></span>
-        </div>
-       </div>
-       <span class="uib_shim"></span>
-      </div>
-
-      <div class="grid grid-pad urow uib_row_7 row-height-7" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_7 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-         <div class="table-thing with-label widget uib_w_19 d-margins" data-uib="app_framework/input" data-ver="0">
-          <input class="wide-control" placeholder="username" type="text" name="username">
-         </div>
-         <div class="table-thing with-label widget uib_w_20 d-margins" data-uib="app_framework/input" data-ver="0">
-          <input class="wide-control" placeholder="password" type="text" name="password">
-         </div><a class="button widget uib_w_21 d-margins block green" data-uib="app_framework/button" data-ver="0">Login</a><span class="uib_shim"></span>
-        </div>
-       </div>
-       <span class="uib_shim"></span>
-      </div>
-     </div>
-    </div>
-    <!-- /upage-outer -->
-   </div>
    <!-- /upage -->
 
   </div>
