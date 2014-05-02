@@ -16,7 +16,10 @@
    		*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
    		input, textarea  { -webkit-user-select:text; }
   </style>
+  
+  <!--- Phonegap JS --->
   <script type="text/javascript" src="phonegap.js"></script>
+  <script type="text/javascript" src="PushNotification.js"></script>
 		
 		<!--- Intel XDK JS --->
   <script type="application/javascript" src="js/jquery.min.js"></script>
@@ -31,7 +34,7 @@
 		<!--- Intel JS Ends --->
 
 	</head>
-<body id="afui" class="af">
+<body id="afui" class="af" onload="app.initialize();">
 
   <!-- content goes here-->
   <div class="uwrap" id="content">
