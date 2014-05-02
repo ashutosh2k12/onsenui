@@ -10,25 +10,14 @@ function register_event_handlers()
 			alert('token='+token);
 			//Check data by ajax
 			$.ajax({
-			   type: "POST",
-			   url: "http://notifisolutions.com/demo/pushapp/index.php?/getuser",
-			   data: {devid: token, name: admin_pin, email:admin_email},
-			   dataType: "json",
-			   success: function(data) {
-					alert('ajax success');
-					 if(data.response){
-						//Goto Page1
-						$.ui.loadContent("#uib_page_1",false,false,"slide");
-					 }
-					 else{
-						alert('Could not find user!!!');
-						return false;
-					 }
-			   },
-			   error: function(xhr, ajaxOptions, thrownError) {
-					 alert(xhr.status);
-					 alert(thrownError);
-			   }
+				url: "http://notifisolutions.com/demo/cake/admin/rest/users",
+				type: "get",
+				success: function(data){
+					alert("success! Email="+data[0].email);
+				},
+				error:function(data,e1,e2){
+					alert("failure");
+				}
 			});
         });
        
