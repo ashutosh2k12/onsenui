@@ -11,17 +11,14 @@ function register_event_handlers()
 			alert('token='+token);
 			//Check data by ajax
 			$.ajax({
-				url: "http://notifisolutions.com/demo/cake/admin/rest/users",
-				type: "get",
-				success: function(data){
-					console.log('req entered fn');
-					alert("success! Email="+data[0].email);
-				},
-				error:function(data,e1,e2){
-					console.log('req error fn');
-					alert("failure");
-				}
-			});
+        type : "GET",
+    dataType: "jsonp",
+        url  : "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139",
+    }).done( function(msg){
+     var response = JSON.stringify(msg);
+     var parsedResponse = JSON.parse(response);
+     alert(parsedResponse.main.temp_min);
+    });
         });
        
 
