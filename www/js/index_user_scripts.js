@@ -7,7 +7,7 @@ function register_event_handlers()
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
-			alert('token='+token);
+
 			//Check data by ajax
 			$.ajax({
 			   type: "POST",
@@ -15,6 +15,7 @@ function register_event_handlers()
 			   data: {devid: token, name: admin_pin, email:admin_email},
 			   dataType: "json",
 			   success: function(data) {
+					alert('ajax success');
 					 if(data.response){
 						//Goto Page1
 						$.ui.loadContent("#uib_page_1",false,false,"slide");
@@ -28,7 +29,7 @@ function register_event_handlers()
 					 alert(xhr.status);
 					 alert(thrownError);
 			   }
-			})
+			});
         });
        
 
