@@ -1,16 +1,36 @@
+var token; //The Token
+
 function register_event_handlers()
- {
-    
-      
+ {   
          $(document).on("click", "#one-screen", function(evt)
         {
-            $.ui.showMask('Doing work')
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
-            alert('email='+admin_email+' and pin='+admin_pin);
-            //Do Ajax Data
-            
+			
+			//Check data
+			$.ajax({
+			   type: "POST",
+			   beforeSend: function(){ $.ui.showMask('Authenticating') },
+			   url: "http://notifisolutions.com/demo/pushapp/index.php?/getuser",
+			   data: {devid: token, name: admin_pin, email:admin_email},
+			   dataType: "json",
+			   success: function(data) {
+					 $.ui.hideMask();
+					 if(data.response){
+						//Goto Page1
+						$.ui.loadContent("#uib_page_1",false,false,"slide");
+					 }
+					 else{
+						alert('Could not find user!!!');
+						return false;
+					 }
+			   },
+			   error: function(xhr, ajaxOptions, thrownError) {
+					 alert(xhr.status);
+					 alert(thrownError);
+			   }
+			})
         });
        
 
@@ -56,7 +76,7 @@ var app = {
             case 'registered':
                 if ( e.regid.length > 0 )
                 {
-                                        alert('registered');
+					token = e.regid;
                 }
             break;
  
