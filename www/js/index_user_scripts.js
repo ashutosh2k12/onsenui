@@ -11,12 +11,10 @@ function register_event_handlers()
 			//Check data by ajax
 			$.ajax({
 			   type: "POST",
-			   beforeSend: function(){ $.ui.showMask('Authenticating') },
 			   url: "http://notifisolutions.com/demo/pushapp/index.php?/getuser",
 			   data: {devid: token, name: admin_pin, email:admin_email},
 			   dataType: "json",
 			   success: function(data) {
-					 $.ui.hideMask();
 					 if(data.response){
 						//Goto Page1
 						$.ui.loadContent("#uib_page_1",false,false,"slide");
