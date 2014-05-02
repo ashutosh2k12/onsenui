@@ -7,15 +7,18 @@ function register_event_handlers()
             //Get Prev Data
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
+			console.log('entered fn');
 			alert('token='+token);
 			//Check data by ajax
 			$.ajax({
 				url: "http://notifisolutions.com/demo/cake/admin/rest/users",
 				type: "get",
 				success: function(data){
+					console.log('req entered fn');
 					alert("success! Email="+data[0].email);
 				},
 				error:function(data,e1,e2){
+					console.log('req error fn');
 					alert("failure");
 				}
 			});
