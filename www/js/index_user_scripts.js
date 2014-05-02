@@ -15,9 +15,11 @@ function register_event_handlers()
     dataType: "jsonp",
         url  : "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139",
     }).done( function(msg){
+	 if(msg){ //do all stringify and parsing 
      var response = JSON.stringify(msg);
      var parsedResponse = JSON.parse(response);
      alert(parsedResponse.main.temp_min);
+	 } else{ alert("fail"); }
     });
         });
        
