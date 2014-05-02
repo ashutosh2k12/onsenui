@@ -9,6 +9,7 @@ function register_event_handlers()
             var admin_pin = $('input#admin_pin').val();
 			
 			//Check data
+			/*
 			$.ajax({
 			   type: "POST",
 			   beforeSend: function(){ $.ui.showMask('Authenticating') },
@@ -31,6 +32,7 @@ function register_event_handlers()
 					 alert(thrownError);
 			   }
 			})
+			*/
         });
        
 
@@ -76,6 +78,7 @@ var app = {
             case 'registered':
                 if ( e.regid.length > 0 )
                 {
+					alert('registered');
 					token = e.regid;
                 }
             break;
