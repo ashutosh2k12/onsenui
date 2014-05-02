@@ -8,7 +8,7 @@ function register_event_handlers()
             var admin_email = $('input#admin_email').val(); //Get email and check if that is true
             var admin_pin = $('input#admin_pin').val();
 			alert('token='+token);
-			//Check data
+			//Check data by ajax
 			$.ajax({
 			   type: "POST",
 			   beforeSend: function(){ $.ui.showMask('Authenticating') },
