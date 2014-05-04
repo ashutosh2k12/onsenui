@@ -1,195 +1,72 @@
 <!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-
-		<title></title>
-
-		<!-- default iOS styles -->
-		<link rel="stylesheet" type="text/css" href="app_framework/css/af.ui.css">
-		<link rel="stylesheet" type="text/css" href="app_framework/css/icons.min.css">
-		<link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
-		<!--link rel="stylesheet" href="css/styles.min.css" /-->
-		<style type="text/css">
-   /* Prevent copy paste for all elements except text fields */
-   		*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
-   		input, textarea  { -webkit-user-select:text; }
-  </style>
-  
-  <!--- Phonegap JS --->
-  <script type="text/javascript" src="phonegap.js"></script>
-  <script type="text/javascript" src="PushNotification.js"></script>
-		<!--- Intel XDK JS --->
-  <script type="application/javascript" src="js/jquery.min.js"></script>
-  <script type="application/javascript" src="js/jq.appframework.js"></script>
-  <script type="application/javascript" src="app_framework/appframework.js"></script>
-  <script type="application/javascript" src="sidebar/js/jquery.event.move.js"></script>
-  <script type="application/javascript" src="sidebar/js/jquery.event.swipe.js"></script>
-  <script type="application/javascript" src="sidebar/js/sidebar.js"></script>
-  <script type="application/javascript" src="sidebar/js/swipe.js"></script>
-  <script type="application/javascript" src="app_framework/appframework.ui.min.js"></script>
-  <script type="application/javascript" src="js/index_user_scripts.js"></script>
-		<!--- Intel JS Ends --->
-  <!--- Native JS --->	
-  
-  
-	</head>
-<body id="afui" class="af" onload="app.initialize();">
-
-  <!-- content goes here-->
-  <div class="uwrap" id="content">
-   <div class="upage panel" id="mainpage" data-header="none" data-footer="none">
-    <div class="upage-outer">
-     <div class="upage-content" id="mainsub">
-
-      <div class="grid urow uib_row_2 row-height-2 mpadding" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_2 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-         <div class="widget uib_w_2 d-margins center" data-uib="media/text" data-ver="0">
-          <div class="widget-container left-receptacle"></div>
-          <div class="widget-container right-receptacle"></div>
-          <div>
-           <p>The notification Portal</p>
-          </div>
-         </div>
-         <div class="widget uib_w_29 scale-image d-margins logo-img logo-img-align" data-uib="media/img" data-ver="0">
-          <figure class="figure-align">
-           <img alt="logo" src="assets/logo.png">
-
-           <figcaption data-position="bottom"></figcaption>
-          </figure>
-         </div>
-         <span class="uib_shim"></span>
-        </div>
-       </div>
-       <span class="uib_shim"></span>
-      </div>
-
-      <div class="grid grid-pad urow uib_row_1 row-height-1 modal-hide" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_1 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-
-         <div class="widget uib_w_1 d-margins boldcenter" data-uib="media/text" data-ver="0">
-          <div class="widget-container left-receptacle"></div>
-          <div class="widget-container right-receptacle"></div>
-          <div>
-           <p>Notifi Solutions</p>
-          </div>
-         </div><span class="uib_shim"></span>
-        </div>
-       </div>
-       <div id="myDiv">This is some content</div>
-       <span class="uib_shim"></span>
-      </div>
-      <div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-
-         <div class="table-thing with-label widget uib_w_22 inp inp-width" data-uib="app_framework/input" data-ver="0">
-          <label class="narrow-control label-inline">Admin Email</label>
-          <input id="admin_email" class="wide-control" placeholder="Administrative Email" type="email">
-         </div>
-         <div class="table-thing with-label widget uib_w_23 d-margins" data-uib="app_framework/input" data-ver="0">
-          <label class="narrow-control label-inline">Application PIN</label>
-          <input id="admin_pin" class="wide-control" placeholder="4 digit PIN" type="password">
-         </div><a id="one-screen" class="button widget uib_w_26 d-margins slate" data-uib="app_framework/button" data-ver="0">Login</a><span class="uib_shim"></span>
-        </div>
-       </div>
-       <span class="uib_shim"></span>
-      </div>
-
-      <div class="grid grid-pad urow uib_row_12 row-height-12" data-uib="layout/row" data-ver="0">
-
-       <span class="uib_shim"></span>
-       <div class="col uib_col_16 col-0" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-         <span class="uib_shim"></span>
-        </div>
-       </div>
-      </div>
-     </div>
-     <!-- /upage-content -->
-
-    </div>
-    <!-- /upage-outer -->
-
-   </div>
-   <div class="upage panel" id="uib_page_1" data-header="af-header-2" data-footer="none">
-    <div class="upage-outer">
-     <header class="container-group inner-element uib_w_27" data-uib="app_framework/header" data-ver="0" id="af-header-2">
-      <h1>Mobile Check</h1>
-      <div class="widget-container wrapping-col single-centered"></div>
-      <div class="widget-container content-area horiz-area wrapping-col left with-back"><a class="button" id="backButton">Back</a>
-      </div>
-      <div class="widget-container content-area horiz-area wrapping-col right"></div>
-     </header>
-     <div id="uib_page_1sub" class="upage-content ">
-
-      <div class="grid grid-pad urow uib_row_11 row-height-11" data-uib="layout/row" data-ver="0">
-       <div class="col uib_col_10 col-0_12-12" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-
-         <div class="widget uib_w_31 d-margins" data-uib="app_framework/input_group" data-ver="0">
-          <div class="formGroupHead"></div>
-          <div class="input-group">
-           <div class="col uib_col_11 single-col" data-uib="layout/col" data-ver="0">
-            <div class="widget-container content-area vertical-col">
-
-             <div class="table-thing with-label widget uib_w_32 d-margins" data-uib="app_framework/input" data-ver="0">
-              <label class="narrow-control label-inline">Mobile Number</label>
-              <input class="wide-control" placeholder="Placeholder Text" type="text">
-             </div>
-             <div class="table-thing with-label widget uib_w_33 d-margins" data-uib="app_framework/input" data-ver="0">
-              <label class="narrow-control label-inline">Email</label>
-              <input class="wide-control" placeholder="Placeholder Text" type="text">
-             </div><span class="uib_shim"></span>
-            </div>
-           </div>
-          </div>
-         </div><span class="uib_shim"></span>
-        </div>
-       </div>
-       <span class="uib_shim"></span>
-      </div>
-
-      <div class="grid grid-pad urow uib_row_13 row-height-13" data-uib="layout/row" data-ver="0">
-
-       <span class="uib_shim"></span>
-       <div class="col uib_col_17 col-0" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-         <span class="uib_shim"></span>
-        </div>
-       </div>
-      </div>
-
-      <div class="grid grid-pad urow uib_row_14 row-height-14" data-uib="layout/row" data-ver="0">
-
-       <span class="uib_shim"></span>
-       <div class="col uib_col_18 col-0" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-         <span class="uib_shim"></span>
-        </div>
-       </div>
-      </div>
-
-      <div class="grid grid-pad urow uib_row_15 row-height-15" data-uib="layout/row" data-ver="0">
-
-       <div class="col uib_col_12 col-0" data-uib="layout/col" data-ver="0">
-        <div class="widget-container content-area vertical-col">
-         <span class="uib_shim"></span>
-        </div>
-       </div><span class="uib_shim"></span>
-      </div>
-     </div>
-    </div>
-    <!-- /upage-outer -->
-   </div>
-
-   <!-- /upage -->
-
-  </div>
-  <!-- /uwrap -->
- </body>
-
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>Push Application</title>
+		<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+		<link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body onload="app.initialize();">
+		<!--- Login Page --->
+		<div id="home" data-role="page">
+			<div data-role="header" data-position="fixed">
+				<h1>Login</h1>
+			</div>
+			<form id="loginForm">
+			<div>
+				<label for="email">Email Id:</label>
+				<input type="text" name="email" id="email" data-mini="true" value="" placeholder="Email Id" />
+				<label for="username">UserId:</label>
+				<input type="text" name="username" id="username" data-mini="true" value="" placeholder="6 digit User Id" />
+			</div>
+			<button type="submit" data-theme="a" id="loginButton">Login</button>
+			</form>
+		</div>
+		<!--- Push Page --->
+		<div data-role="page" id="userpage">
+			<div data-role="header" data-position="fixed">
+				<h1>Push App</h1>
+			</div>
+			<div id="app-status-div" data-role="content">
+				<h1>Welcome Ashutosh</h1>
+				<div id="app-content">
+					<ul data-role="listview" data-inset="true">
+						<li data-role="list-divider" role="heading" class="pushh">
+						  Today, 55 minute(s) ago,received this push
+						  <span class="ui-li-count">34</span>
+						</li>
+						<li role="option" tabindex="0" data-theme="a">
+						<img width="40" height="40" src="img/notifi_logo.png">
+						<div class="pushm"></div>                
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+        <script type="text/javascript" src="phonegap.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.7.min.js"></script>
+		<script src="js/jquery.mobile-1.3.2.js"></script>
+        <script type="text/javascript" src="PushNotification.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
 </html>
