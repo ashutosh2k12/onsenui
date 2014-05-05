@@ -12,12 +12,14 @@ function register_event_handlers()
 			$.ajax({
 			   type: "POST",
 			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/user",
-			   data: {devid: token, name: admin_pin, email:admin_email},
+			   data: {email:admin_email, pin: admin_pin, hardwareid: token },
 			   dataType: "json",
 			   success: function(data) {
 					 if(data.error==0){
 						if(data.hardware==true){	//Goto Page1
-						$.ui.loadContent("#uib_page_1",false,false,"slide"); }
+					//	$.ui.loadContent("#uib_page_1",false,false,"slide"); 
+						alert('you\'re old');
+						}
 						else{	alert('you\'re new'); }
 					 }
 					 else{
