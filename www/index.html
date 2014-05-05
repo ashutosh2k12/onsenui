@@ -1,22 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -27,21 +9,37 @@
 		<link rel="stylesheet" href="css/style.css" />
     </head>
     <body onload="app.initialize();">
-		<!--- Login Page --->
+		<!--- Home Page --->
 		<div id="home" data-role="page">
 			<div data-role="header" data-position="fixed">
 				<h1>Login</h1>
 			</div>
+			<div id="logo_image">
+			   <img src="img/notifi_logo.png"  class="vwlogo" alt="Image Header" >
+			</div>
 			<form id="loginForm">
 			<div>
-				<label for="email">Email Id:</label>
-				<input type="text" name="email" id="email" data-mini="true" value="" placeholder="Email Id" />
-				<label for="username">UserId:</label>
-				<input type="text" name="username" id="username" data-mini="true" value="" placeholder="6 digit User Id" />
+				<input type="text" name="email" id="vwlogin" data-mini="true" value="" placeholder="Login" />
+				<input type="password" name="pin" id="vwpin" data-mini="true" value="" placeholder="1234" />
 			</div>
-			<button type="submit" data-theme="a" id="loginButton">Login</button>
+			<button class="vwbtn" type="submit" data-theme="d" data-inline="true" id="loginButton">Done</button>
 			</form>
 		</div>
+		
+		<!--- Mobile Page --->
+		<div id="mobile" data-role="page">
+			<div data-role="header" data-position="fixed">
+				<h1>Signup</h1>
+			</div>
+			<form id="mobileForm">
+			<div>
+				<label for="email">Mobile Number:</label>
+				<input type="number" name="phone" id="cellnumber" data-mini="true" value="" />
+			</div>
+			<button class="vwbtn" type="submit" data-theme="d" id="registerButton" data-inline="true">Submit</button>
+			</form>
+		</div>
+		
 		<!--- Push Page --->
 		<div data-role="page" id="userpage">
 			<div data-role="header" data-position="fixed">

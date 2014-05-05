@@ -17,28 +17,30 @@
  * under the License.
  */
  
-
+$( document ).bind( "mobileinit", function() {
+    // Make your jQuery Mobile framework configuration changes here!
+    $.mobile.allowCrossDomainPages = true;
+});
 
 //Sending data to server
-function sendtoServer(data, name, email){
+function checkparent(pin, email){
+	console.log('check');
         $.ajax({
            type: "POST",
 		   beforeSend: function(){ $.mobile.loading( 'show' ); },
-           url: "http://notifisolutions.com/demo/pushapp/index.php?/getuser",
-           data: {devid: data, name: name, email:email},
+           url: "http://sumitjaiswal.com/area51/notifi/admin/rest/user",
+           data: {email:email,pin:pin,hardwareid:tempid},
 		   dataType: "json",
            success: function(data) {
 				 $.mobile.loading( 'hide' );
-				 if(data.response){
-					username = data.name;
-					$.mobile.changePage($('#userpage'));
-					$("#home").trigger("pagecreate");
+				 if(data.error==0){
+					if(data.hardware==true){	pushPage(); }
+					else{	askNumber(data.userid,data.appid); }
 				 }
 				 else{
-					alert('Could not find user!!!');
+					alert('Error: '+data.error_response);
 					return false;
 				 }
-                 $("#phonenumber").val('');
            },
            error: function(xhr, ajaxOptions, thrownError) {
                  alert(xhr.status);
@@ -47,22 +49,79 @@ function sendtoServer(data, name, email){
         });
 }
 
-//Submit Form Example
-function submitForm(){
-        $("#loginForm").on("submit",function(e) {
-    //disable the button so we can't resubmit while we wait
-                var email = $("#email").val();
-                var uid = $("#username").val();
-                if(uid != '' && tempid!= '' && email!= '') {
-                        $("#submitButton",this).attr("disabled","disabled");
-                        sendtoServer(tempid, uid, email);
+function saveNumber(num,hwid,parentid,appid)
+{
+	$.ajax({
+           type: "POST",
+           url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
+           data: {hardwareid:hwid,number:num,parentid:parentid,appid:appid},
+		   dataType: "json",
+           success: function(data) {	if(data.error==0)	pushPage();	},
+           error: function(xhr, ajaxOptions, thrownError) {	return false;	}
+        });
+	return false;
+}
+
+//Register User Callbaack
+function askNumber(parentid,appid)
+{
+	numberForm(parentid,appid);
+    $.mobile.changePage( $("#mobile"), "slide", true, true);
+	$("#home").trigger("pagecreate");
+}
+
+//Login User Callbaack
+function askLogin()
+{
+    $.mobile.changePage( $("#login"), "slide", true, true);
+	$("#home").trigger("pagecreate");
+}
+
+//User Pushes Page
+function pushPage()
+{
+    $.mobile.changePage( $("#userpage"), "slide", true, true);
+	$("#home").trigger("pagecreate");
+}
+
+//Number submit Form
+function numberForm(parentid,appid)
+{
+	 $("#mobileForm").on("submit",function(e) {
+				//disable the button so we can't resubmit while we wait
+                var number = $("#cellnumber").val();
+				alert('number submit.Parentid='+parentid+' and hardwareid='+tempid+' and appid='+appid);
+                if(number != '') {
+                        $("#registerButton",this).attr("disabled","disabled");
+                        saveNumber(number, tempid,parentid,appid);
                 }
                 else{
                         alert('Error: missing something');
                 }
                 return false;
-});
+		});
 }
+
+//Submit Form Example
+$("form#loginForm").on("submit",function(e) {
+	if(typeof tempid=='undefined' || tempid=='')
+	{
+		alert('The device has not been authenticated yet. Please hold on');
+		return false;
+	}
+	var email = $("#vwlogin").val();
+	var pin = $("#vwpin").val();
+	alert('hghjgjgh');
+	if(pin != '' && email!= '') {
+			$("#submitButton",this).attr("disabled","disabled");
+			checkparent(pin, email);
+	}
+	else{
+			alert('Error: missing something');
+	}
+	return false;
+});
+
 
 function uniqueData(){
 			var text = "";
@@ -75,8 +134,8 @@ function uniqueData(){
 }
 //Init Page2
 $(document).on('pageinit', '#userpage', function(){
-    $('.ui-content').find('h1').text("Welcome "+username);
-        $('.pushm').text("Device Confirmed: Device id-"+tempid);
+    $('.ui-content').find('h1').text("Welcome ");
+        $('.pushm').text("Device Confirmed but you are blocked now");
 });
 
 //Initialize some variables
@@ -101,17 +160,19 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
     //    initPushPlug();
+		var pushNotification = window.plugins.pushNotification;
+		pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16692000019","ecb":"app.onNotificationGCM"});
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var pushNotification = window.plugins.pushNotification;
-                submitForm();
-                pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"16692000019","ecb":"app.onNotificationGCM"});
+        
+   //     submitForm();
+			console.log(id);
     },
         // result contains any message sent from the plugin call
         successHandler: function(result) {
-                alert('Callback Success! Result = '+result)
+         //       alert('Callback Success! Result = '+result)
         },
         //Any errors? 
         errorHandler:function(error) {
@@ -124,6 +185,7 @@ var app = {
                 if ( e.regid.length > 0 )
                 {
                                         tempid = e.regid;
+										alert('device regisered'+tempid);
                 }
             break;
  
