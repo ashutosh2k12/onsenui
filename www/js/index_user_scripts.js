@@ -24,7 +24,8 @@ function register_event_handlers()
 					 }
 					 else{
 						alert('Error: '+data.error_response);
-						return false;
+						$.ui.loadContent("#uib_page_1",false,false,"slide"); 
+					//	return false;
 					 }
 					 
 			   },
