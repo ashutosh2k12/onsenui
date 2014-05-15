@@ -1,5 +1,6 @@
 var token; //The Token
 var parentid;
+var appid;
 function register_event_handlers()
  {   
          $(document).on("click", "#one-screen", function(evt)
@@ -19,7 +20,7 @@ function register_event_handlers()
 						if(data.hardware==true){	
 							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
-						else{	parentid=data.userid; $.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
+						else{	parentid=data.userid; appid = data.appid; $.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
 					 }
 					 else{
 						alert('Error: '+data.error_response);
@@ -44,7 +45,7 @@ function register_event_handlers()
 			$.ajax({
 			   type: "POST",
 			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
-			   data: {number:user_cell, parentid: parentid, hardwareid: token },
+			   data: {number:user_cell, parentid: parentid, hardwareid: token, appid: appid },
 			   dataType: "json",
 			   success: function(data) {
 					 if(data.error==0){
