@@ -1,5 +1,5 @@
 var token; //The Token
-
+var parentid;
 function register_event_handlers()
  {   
          $(document).on("click", "#one-screen", function(evt)
@@ -16,15 +16,13 @@ function register_event_handlers()
 			   dataType: "json",
 			   success: function(data) {
 					 if(data.error==0){
-						if(data.hardware==true){	//Goto Page1
-					//	$.ui.loadContent("#uib_page_1",false,false,"slide"); 
-						alert('you\'re old');
+						if(data.hardware==true){	
+							$.ui.loadContent("#uib_page_2",false,false,"slide"); //The final page
 						}
-						else{	alert('you\'re new'); }
+						else{	parentid=data.userid; $.ui.loadContent("#uib_page_1",false,false,"slide");  } //The number verification page
 					 }
 					 else{
 						alert('Error: '+data.error_response);
-						$.ui.loadContent("#uib_page_1",false,false,"slide"); 
 					//	return false;
 					 }
 					 
@@ -36,6 +34,30 @@ function register_event_handlers()
 			})
         });
        
+	   //Subscribe button click handler
+	    $(document).on("click", "#two-screen", function(evt)
+        {
+			 //Get Prev Data
+            var user_cell = $('input#mobile').val(); //Get email and check if that is true
+			alert('user entered='+user_cell+' and token='+token);
+			//Check data
+			$.ajax({
+			   type: "POST",
+			   url: "http://sumitjaiswal.com/area51/notifi/admin/rest/number/save/1",
+			   data: {number:user_cell, parentid: parentid, hardwareid: token },
+			   dataType: "json",
+			   success: function(data) {
+					 if(data.error==0){
+						$.ui.loadContent("#uib_page_2",false,false,"slide");
+					 }else{ alert('You got some error'); return false; }
+					 
+			   },
+			   error: function(xhr, ajaxOptions, thrownError) {
+					 alert(xhr.status);
+					 alert(thrownError);
+			   }
+			})
+		});
 
 }
 
