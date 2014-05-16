@@ -109,7 +109,8 @@ var app = {
  
             case 'message':
 						  // this is the actual push notification. its format depends on the data model from the push server
-						  alert('push message = '+e.message);
+					//	  alert('push message = '+e.message);
+						  $('ul#pushes').append('<li><a href="#detailview">'+e.message+'</a></li>');
                           
             break;
  
